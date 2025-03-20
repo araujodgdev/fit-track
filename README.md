@@ -2,14 +2,13 @@
 
 ## Informações da Equipe
 
-- **Turma:** [Número da Turma]
+- **Turma:** 3º Período ADS - Embarque
 - **Membros da Equipe:**
-  - [Nome do Membro 1] - [Cargo/Função]
-  - [Nome do Membro 2] - [Cargo/Função]
-  - [Nome do Membro 3] - [Cargo/Função]
-  - [Nome do Membro 4] - [Cargo/Função]
-  - [Nome do Membro 5] - [Cargo/Função]
-  - [Nome do Membro 6] - [Cargo/Função]
+  - Dayanne Cristina
+  - Douglas Araújo
+  - Ewerton Moraes
+  - Gabriel Farias
+  - Lucas Silva
 
 ## Descrição do Produto
 
@@ -31,10 +30,10 @@
 
 ## Screencasts
 
-- **Entrega 02:** [Link para o screencast no YouTube] (A ser adicionado após 09/04/2025)
-- **Entrega 03:** [Link para o screencast no YouTube] (A ser adicionado após 30/04/2025)
-- **Entrega 04:** [Link para o screencast no YouTube] (A ser adicionado após 29/05/2025)
-- **Testes Automatizados:** [Link para o screencast no YouTube] (A ser adicionado nas entregas 03 e 04)
+- **Entrega 02:** [Link para o screencast no YouTube]
+- **Entrega 03:** [Link para o screencast no YouTube]
+- **Entrega 04:** [Link para o screencast no YouTube]
+- **Testes Automatizados:** [Link para o screencast no YouTube]
 
 ---
 
