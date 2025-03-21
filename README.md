@@ -4,11 +4,11 @@
 
 - **Turma:** 3º Período ADS - Embarque
 - **Membros da Equipe:**
-  - Dayanne Cristina
+  - Dayanne Moraes
   - Douglas Araújo
-  - Ewerton Moraes
+  - Ewerton Monteiro
   - Gabriel Farias
-  - Lucas Silva
+  - Lucas Matheus
 
 ## Descrição do Produto
 
@@ -28,48 +28,12 @@
 
 ---
 
-## Screencasts
-
-- **Entrega 02:** [Link para o screencast no YouTube]
-- **Entrega 03:** [Link para o screencast no YouTube]
-- **Entrega 04:** [Link para o screencast no YouTube]
-- **Testes Automatizados:** [Link para o screencast no YouTube]
-
----
-
 ## Entregas
 
-### Entrega 02 - 09/04/2025
-- **Status:** Em andamento (data atual: 20/03/2025)
-- **Histórias Implementadas:**
-  1. "Como instrutor, quero cadastrar um aluno com nome, idade e objetivo, para associá-lo a uma ficha de treino."
-  2. "Como instrutor, quero criar uma ficha de treino com uma lista de exercícios (nome, grupo muscular, carga), para personalizar o treino do aluno."
-- **Diagrama de Classes:** [A ser adicionado]
-- **Issue/Bug Tracker:** [Print a ser adicionado]
-- **Screencast:** [Link a ser adicionado]
-- **Detalhes:** Implementação inicial com persistência em memória, interface textual e versionamento ativo no GitHub.
-
-### Entrega 03 - 30/04/2025
-- **Status:** Pendente
-- **Histórias Implementadas:**
-  1. "Como instrutor, quero atualizar a carga de um exercício na ficha de treino, para refletir o progresso do aluno."
-  2. "Como instrutor, quero visualizar o histórico de fichas de um aluno, para acompanhar sua evolução."
-- **Diagrama de Classes Atualizado:** [A ser adicionado]
-- **Issue/Bug Tracker Atualizado:** [Print a ser adicionado]
-- **Screencast:** [Link a ser adicionado]
-- **Testes Automatizados:** [Screencast a ser adicionado]
-- **Detalhes:** Refatoração com arquitetura em camadas, commits semanais e testes automatizados.
-
-### Entrega 04 - 29/05/2025
-- **Status:** Pendente
-- **Histórias Implementadas:**
-  1. "Como aluno, quero visualizar minha ficha de treino atual, para saber quais exercícios fazer."
-  2. "Como instrutor, quero excluir uma ficha antiga, para manter o sistema organizado."
-  3. "Como instrutor, quero gerar um relatório de progresso de um aluno, para avaliar resultados."
-- **Diagrama de Classes Atualizado:** [A ser adicionado]
-- **Issue/Bug Tracker Atualizado:** [Print a ser adicionado]
-- **Screencast:** [Link a ser adicionado]
-- **Testes Automatizados:** [Screencast a ser adicionado]
-- **Detalhes:** Persistência permanente (ex.: SQLite ou arquivos), documentação para execução do projeto.
+### Entrega 01 - 22/03/2025
+- **Status:** Concluída
+- [**Histórias Definidas para Implementação**](https://github.com/users/araujodgdev/projects/4/views/1)
+- [**Protótipo Lo-Fi**](https://www.figma.com/design/GHusuNKl7TkhTesnnDT8r7/Lofi---POO?node-id=0-1&t=Y5i5rakeeiaZYXqU-1)
+- [**Screencast do Protótipo Lo-Fi**]()
 
 ---
