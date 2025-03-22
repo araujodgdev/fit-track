@@ -8,7 +8,7 @@
   - Douglas Araújo
   - Ewerton Monteiro
   - Gabriel Farias
-  - Lucas Matheus
+  - Lucas Mateus
 
 ## Descrição do Produto
 
@@ -34,6 +34,6 @@
 - **Status:** Concluída
 - [**Histórias Definidas para Implementação**](https://github.com/users/araujodgdev/projects/4/views/1)
 - [**Protótipo Lo-Fi**](https://www.figma.com/design/GHusuNKl7TkhTesnnDT8r7/Lofi---POO?node-id=0-1&t=Y5i5rakeeiaZYXqU-1)
-- [**Screencast do Protótipo Lo-Fi**]()
+- [**Screencast do Protótipo Lo-Fi**](https://www.youtube.com/watch?v=r2qKeTZtQXA)
 
 ---
