@@ -1,0 +1,10 @@
+  services:
+    postgres:
+      image: postgres
+      container_name: fit_track_postgres
+      ports:
+        - "5432:5432"
+      environment:
+        - POSTGRES_USER=admin
+        - POSTGRES_PASSWORD=admin
+        - POSTGRES_DB=fit_track
