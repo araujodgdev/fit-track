@@ -11,3 +11,16 @@ Host: localhost:8080
     "goal": "EMAGRECIMENTO",
     "role": "ATHLETE"
 }
+
+###
+
+POST http://localhost:8080/coach HTTP/1.1
+Content-Type: application/json
+Host: localhost:8080
+
+{
+    "name": "Mary Doe",
+    "email": "theMaryDoe@example.com",
+    "password": "12345678",
+    "role": "COACH"
+}

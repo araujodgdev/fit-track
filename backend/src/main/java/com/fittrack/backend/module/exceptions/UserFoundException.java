@@ -1,4 +1,4 @@
-package com.fittrack.backend.module.athlete.useCases;
+package com.fittrack.backend.module.exceptions;
 
 public class UserFoundException extends RuntimeException {
     public UserFoundException(String msg) {

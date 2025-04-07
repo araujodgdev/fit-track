@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.fittrack.backend.module.athlete.AthleteEntity;
 import com.fittrack.backend.module.athlete.AthleteRepository;
+import com.fittrack.backend.module.exceptions.UserFoundException;
 
 @Service
 public class RegisterAthleteUseCase {
