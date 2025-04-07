@@ -5,9 +5,8 @@ Content-Type: application/json
 Host: localhost:8080
 
 {
-    "username": "johdoe",
+    "name": "johdoe",
     "email": "thd@exle.com",
-    "password": "12345678",
     "age": "25",
     "goal": "EMAGRECIMENTO",
     "role": "ATHLETE"

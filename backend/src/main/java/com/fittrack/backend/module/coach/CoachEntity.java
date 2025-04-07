@@ -21,8 +21,7 @@ public class CoachEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Pattern(regexp = "^\\S*$", message = "O campo [username] não pode conter espaços em branco!")
-    private String username;
+    private String name;
     
     @Email(message = "O campo [email] deve conter um email válido!")
     private String email;
