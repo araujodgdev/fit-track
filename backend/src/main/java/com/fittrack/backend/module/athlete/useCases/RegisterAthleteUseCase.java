@@ -14,7 +14,7 @@ public class RegisterAthleteUseCase {
 
     public AthleteEntity execute(AthleteEntity athlete) {
         this.repo
-            .findByUsernameOrEmail(athlete.getUsername(), athlete.getEmail())
+            .findByEmail(athlete.getEmail())
             .ifPresent((user) -> {
                 throw new UserFoundException("Atleta já registrado no sistema!");
             });
