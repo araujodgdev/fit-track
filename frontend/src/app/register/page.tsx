@@ -1,15 +1,21 @@
+'use client'
+
 import Link from "next/link"
-import { ArrowRight, BicepsFlexed } from "lucide-react"
+import { ArrowLeft, BicepsFlexed, Loader2 } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { handleRegister } from "@/lib/actions"
+import { useActionState } from "react"
 
-export default function LoginPage() {
+export default function RegisterPage() {
+  const [state, formAction, isPending] = useActionState(handleRegister, false);
+
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
-      <div className="container relative flex min-h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+        <div className="container relative flex min-h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
           <div className="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
             <div className="absolute inset-0 bg-zinc-900">
             </div>
@@ -29,19 +35,31 @@ export default function LoginPage() {
           <div className="lg:p-8">
             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
               <div className="flex flex-col space-y-2 text-center">
-                <h1 className="text-2xl font-semibold tracking-tight">Entre na sua conta</h1>
+                <h1 className="text-2xl font-semibold tracking-tight">Criar uma conta</h1>
                 <p className="text-sm text-muted-foreground">
-                  Insira seu email e senha abaixo para acessar sua conta
+                  Insira as informações abaixo para se cadastrar
                 </p>
               </div>
               <div className="grid gap-6">
-                <form>
+                <form action={formAction}>
                   <div className="grid gap-4">
+                    <div className="grid gap-2">
+                      <Label htmlFor="name">Nome Completo</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="John Doe"
+                        type="text"
+                        autoCapitalize="none"
+                        autoCorrect="off"
+                      />
+                    </div>
                     <div className="grid gap-2">
                       <Label htmlFor="email">Email</Label>
                       <Input
                         id="email"
-                        placeholder="name@example.com"
+                        name="email"
+                        placeholder="nome@example.com"
                         type="email"
                         autoCapitalize="none"
                         autoComplete="email"
@@ -49,26 +67,34 @@ export default function LoginPage() {
                       />
                     </div>
                     <div className="grid gap-2">
-                      <div className="flex items-center justify-between">
-                        <Label htmlFor="password">Senha</Label>
-                        <Link
-                          href="/forgot-password"
-                          className="text-xs font-medium text-primary underline-offset-4 hover:underline"
-                        >
-                          Esqueceu a senha?
-                        </Link>
-                      </div>
-                      <Input id="password" type="password" />
+                      <Label htmlFor="password">Senha</Label>
+                      <Input id="password" type="password" name="password"/>
                     </div>
-                    <Button type="submit">Entrar</Button>
+                    <div className="grid gap-2">
+                      <Label htmlFor="confirm-password">Confirmar senha</Label>
+                      <Input id="confirm-password" type="password" />
+                    </div>
+                    <Button type="submit" disabled={isPending}>
+                      {isPending ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Cadastrando...
+                        </>
+                      ) : (
+                        "Cadastrar"
+                      )}
+                    </Button>
                   </div>
                 </form>
               </div>
               <div className="text-center text-sm text-muted-foreground">
-                Não possui uma conta?{" "}
-                <Link href="/register" className="font-medium text-primary underline-offset-4 hover:underline">
-                  Cadastre-se
-                  <ArrowRight className="ml-1 inline-block h-4 w-4" />
+                Já possui uma conta?{" "}
+                <Link
+                  href="/"
+                  className="font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  <ArrowLeft className="mr-1 inline-block h-4 w-4" />
+                  Entrar
                 </Link>
               </div>
             </div>
@@ -78,3 +104,4 @@ export default function LoginPage() {
     </div>
   )
 }
+

@@ -20,7 +20,8 @@ Host: localhost:8080
 
 {
     "name": "Mary Doe",
+    "username": "themarydoe",
     "email": "theMaryDoe@example.com",
-    "password": "12345678",
+    "password": "123456",
     "role": "COACH"
 }
