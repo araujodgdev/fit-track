@@ -9,13 +9,13 @@ import { TrainingSheetFilters } from "@/components/training-sheets/training-shee
 
 export const metadata: Metadata = {
   title: "Training Sheets | FitTrack",
-  description: "Manage your training sheets",
+  description: "Gerencie suas fichas de treino",
 }
 
 export default function TrainingSheetsPage() {
   return (
     <DashboardShell>
-      <DashboardHeader heading="Training Sheets" text="Create and manage training sheets for your clients.">
+      <DashboardHeader heading="Fichas de Treino" text="Crie e gerencie fichas de treino para seus clientes.">
         <Link href="/dashboard/training-sheets/new">
           <Button>
             <PlusCircle className="mr-2 h-4 w-4" />

@@ -15,25 +15,25 @@ export function TrainingSheetFilters() {
         <div className="flex-1 flex items-center space-x-2">
           <div className="relative flex-1">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input type="search" placeholder="Search training sheets..." className="pl-8" />
+            <Input type="search" placeholder="Pesquisar fichas de treino..." className="pl-8" />
           </div>
           <Button
             variant="outline"
             size="icon"
             onClick={() => setShowFilters(!showFilters)}
             aria-expanded={showFilters}
-          >
+            >
             <SlidersHorizontal className="h-4 w-4" />
-            <span className="sr-only">Toggle filters</span>
+            <span className="sr-only">Alternar filtros</span>
           </Button>
         </div>
         <Select defaultValue="newest">
           <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Sort by" />
+            <SelectValue placeholder="Ordenar por" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="newest">Newest first</SelectItem>
-            <SelectItem value="oldest">Oldest first</SelectItem>
+            <SelectItem value="newest">Mais recentes</SelectItem>
+            <SelectItem value="oldest">Mais antigas</SelectItem>
             <SelectItem value="name-asc">Name (A-Z)</SelectItem>
             <SelectItem value="name-desc">Name (Z-A)</SelectItem>
           </SelectContent>
@@ -44,23 +44,23 @@ export function TrainingSheetFilters() {
         <div className="grid gap-4 sm:grid-cols-3">
           <Select>
             <SelectTrigger>
-              <SelectValue placeholder="Filter by goal" />
+              <SelectValue placeholder="Filtrar por objetivo" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All goals</SelectItem>
-              <SelectItem value="strength">Strength</SelectItem>
-              <SelectItem value="hypertrophy">Hypertrophy</SelectItem>
-              <SelectItem value="endurance">Endurance</SelectItem>
-              <SelectItem value="weight-loss">Weight Loss</SelectItem>
-              <SelectItem value="general-fitness">General Fitness</SelectItem>
+              <SelectItem value="all">Todos os objetivos</SelectItem>
+              <SelectItem value="strength">Força</SelectItem>
+              <SelectItem value="hypertrophy">Hipertrofia</SelectItem>
+              <SelectItem value="endurance">Resistência</SelectItem>
+              <SelectItem value="weight-loss">Perda de Peso</SelectItem>
+              <SelectItem value="general-fitness">Condicionamento Físico Geral</SelectItem>
             </SelectContent>
           </Select>
           <Select>
             <SelectTrigger>
-              <SelectValue placeholder="Filter by duration" />
+              <SelectValue placeholder="Filtrar por duração" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All durations</SelectItem>
+              <SelectItem value="all">Todas as durações</SelectItem>
               <SelectItem value="1">1 week</SelectItem>
               <SelectItem value="4">4 weeks</SelectItem>
               <SelectItem value="8">8 weeks</SelectItem>
@@ -70,13 +70,13 @@ export function TrainingSheetFilters() {
           </Select>
           <Select>
             <SelectTrigger>
-              <SelectValue placeholder="Filter by status" />
+              <SelectValue placeholder="Filtrar por status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All statuses</SelectItem>
-              <SelectItem value="active">Active</SelectItem>
-              <SelectItem value="archived">Archived</SelectItem>
-              <SelectItem value="draft">Draft</SelectItem>
+              <SelectItem value="all">Todos os status</SelectItem>
+              <SelectItem value="active">Ativo</SelectItem>
+              <SelectItem value="archived">Arquivado</SelectItem>
+              <SelectItem value="draft">Rascunho</SelectItem>
             </SelectContent>
           </Select>
         </div>

@@ -31,7 +31,7 @@ export function DashboardNav() {
             <SidebarMenuButton asChild isActive={pathname === "/dashboard"}>
               <Link href="/dashboard">
                 <LayoutDashboard className="mr-2 h-4 w-4" />
-                <span>Dashboard</span>
+                <span>Painel</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -39,7 +39,7 @@ export function DashboardNav() {
             <SidebarMenuButton asChild isActive={pathname.includes("/dashboard/training-sheets")}>
               <Link href="/dashboard/training-sheets">
                 <ClipboardList className="mr-2 h-4 w-4" />
-                <span>Training Sheets</span>
+                <span>Fichas de Treino</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -47,7 +47,7 @@ export function DashboardNav() {
             <SidebarMenuButton asChild isActive={pathname.includes("/dashboard/clients")}>
               <Link href="/dashboard/clients">
                 <Users className="mr-2 h-4 w-4" />
-                <span>Clients</span>
+                <span>Clientes</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -55,7 +55,7 @@ export function DashboardNav() {
             <SidebarMenuButton asChild isActive={pathname.includes("/dashboard/settings")}>
               <Link href="/dashboard/settings">
                 <Settings className="mr-2 h-4 w-4" />
-                <span>Settings</span>
+                <span>Configurações</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -67,7 +67,7 @@ export function DashboardNav() {
             <SidebarMenuButton asChild>
               <Link href="/logout">
                 <LogOut className="mr-2 h-4 w-4" />
-                <span>Log out</span>
+                <span>Sair</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

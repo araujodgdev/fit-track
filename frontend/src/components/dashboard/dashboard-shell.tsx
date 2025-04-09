@@ -17,7 +17,7 @@ export default function DashboardShell({ children }: DashboardShellProps) {
         <main className="flex-1">
           <div className="flex h-14 items-center border-b px-4">
             <SidebarTrigger />
-            <h1 className="ml-2 text-lg font-semibold">FitTrack</h1>
+            <h1 className="ml-2 text-lg font-semibold">FitTrack - Painel de Controle</h1>
           </div>
           <div className="flex-1 space-y-6 p-6 md:p-8">{children}</div>
         </main>

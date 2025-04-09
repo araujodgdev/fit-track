@@ -74,7 +74,7 @@ export function ClientList() {
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="text-muted-foreground">Aluno desde</p>
-                <p className="font-medium">{client.joinedAt}</p>
+                <p className="font-medium">Desde {client.joinedAt}</p>
               </div>
               <div>
                 <p className="text-muted-foreground">Fichas ativas</p>

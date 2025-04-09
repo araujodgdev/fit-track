@@ -62,36 +62,24 @@ export function TrainingSheetList() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <p className="text-muted-foreground">Duration</p>
-                <p className="font-medium">{sheet.duration}</p>
-              </div>
-              <div>
-                <p className="text-muted-foreground">Clients</p>
-                <p className="font-medium flex items-center">
-                  <Users className="h-3.5 w-3.5 mr-1" />
-                  {sheet.clientCount}
-                </p>
-              </div>
-              <div>
-                <p className="text-muted-foreground">Created</p>
-                <p className="font-medium">{sheet.createdAt}</p>
-              </div>
+              <div><p className="text-muted-foreground">Duração</p><p className="font-medium">{sheet.duration}</p></div><div><p className="text-muted-foreground">Clientes</p><p className="font-medium flex items-center"><Users className="h-3.5 w-3.5 mr-1" />{sheet.clientCount}</p></div><div><p className="text-muted-foreground">Criado</p><p className="font-medium">{sheet.createdAt}</p></div>
             </div>
           </CardContent>
-          <CardFooter className="flex justify-between">
+
+          <CardFooter className="flex justify-between">           
             <Button variant="outline" size="sm" asChild>
               <Link href={`/dashboard/training-sheets/${sheet.id}`}>
                 <Edit className="h-4 w-4 mr-2" />
-                Edit
+                Editar
               </Link>
             </Button>
             <Button variant="outline" size="sm" className="text-destructive">
               <Trash2 className="h-4 w-4 mr-2" />
-              Delete
+              Deletar
             </Button>
           </CardFooter>
         </Card>
+       
       ))}
     </div>
   )

@@ -123,7 +123,7 @@ export function ExerciseSelector({ selectedExercises, setSelectedExercises }: Ex
       ) : (
         <div className="flex items-center justify-center border rounded-md p-8">
           <div className="text-center">
-            <p className="text-muted-foreground mb-4">No exercises added yet</p>
+            <p className="text-muted-foreground mb-4">Nenhum exercício adicionado ainda</p>
             <Button onClick={() => setShowExerciseLibrary(true)}>
               <PlusCircle className="mr-2 h-4 w-4" />
               Add Exercises
@@ -135,18 +135,18 @@ export function ExerciseSelector({ selectedExercises, setSelectedExercises }: Ex
       {(showExerciseLibrary || selectedExercises.length > 0) && (
         <div className="space-y-4 border rounded-md p-4">
           <div className="flex justify-between items-center">
-            <h3 className="text-lg font-medium">Exercise Library</h3>
+            <h3 className="text-lg font-medium">Biblioteca de Exercícios</h3>
             <Button variant="outline" size="sm" onClick={() => setShowExerciseLibrary(!showExerciseLibrary)}>
-              {showExerciseLibrary ? "Hide Library" : "Show Library"}
+              {showExerciseLibrary ? "Ocultar Biblioteca" : "Mostrar Biblioteca"}
             </Button>
           </div>
 
           {showExerciseLibrary && (
             <>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <div className="relative flex-1">
+                <div className="relative flex-1">          
                   <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                  <Input
+                   <Input
                     type="search"
                     placeholder="Search exercises..."
                     className="pl-8"
@@ -155,14 +155,14 @@ export function ExerciseSelector({ selectedExercises, setSelectedExercises }: Ex
                   />
                 </div>
                 <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Filter by category" />
+                  <SelectTrigger className="w-[220px]">
+                    <SelectValue placeholder="Filtrar por categoria" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All categories</SelectItem>
-                    <SelectItem value="chest">Chest</SelectItem>
-                    <SelectItem value="back">Back</SelectItem>
-                    <SelectItem value="legs">Legs</SelectItem>
+                    <SelectItem value="all">Todas as categorias</SelectItem>
+                    <SelectItem value="chest">Peito</SelectItem>
+                    <SelectItem value="back">Costas</SelectItem>
+                    <SelectItem value="legs">Pernas</SelectItem>
                     <SelectItem value="shoulders">Shoulders</SelectItem>
                     <SelectItem value="arms">Arms</SelectItem>
                     <SelectItem value="core">Core</SelectItem>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export default function LoginPage() {
+export default function RegisterPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
@@ -15,7 +15,7 @@ export default function LoginPage() {
             </div>
             <div className="relative z-20 flex items-center text-lg font-medium">
               <BicepsFlexed className="mr-4" />
-              FitTrack Pro
+              FitTrack
             </div>
             <div className="relative z-20 mt-auto">
               <blockquote className="space-y-2">
@@ -30,18 +30,18 @@ export default function LoginPage() {
             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
               <div className="flex flex-col space-y-2 text-center">
                 <h1 className="text-2xl font-semibold tracking-tight">Entre na sua conta</h1>
-                <p className="text-sm text-muted-foreground">
-                  Insira seu email e senha abaixo para acessar sua conta
+                <p className="text-sm text-muted-foreground"> Crie sua conta para começar a usar o FitTrack.
                 </p>
               </div>
               <div className="grid gap-6">
                 <form>
                   <div className="grid gap-4">
                     <div className="grid gap-2">
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email">E-mail</Label>
                       <Input
                         id="email"
-                        placeholder="name@example.com"
+                        placeholder="seuemail@exemplo.com"
+                        required
                         type="email"
                         autoCapitalize="none"
                         autoComplete="email"
@@ -51,16 +51,16 @@ export default function LoginPage() {
                     <div className="grid gap-2">
                       <div className="flex items-center justify-between">
                         <Label htmlFor="password">Senha</Label>
-                        <Link
-                          href="/forgot-password"
-                          className="text-xs font-medium text-primary underline-offset-4 hover:underline"
-                        >
-                          Esqueceu a senha?
-                        </Link>
                       </div>
-                      <Input id="password" type="password" />
+                      <Input id="password" placeholder="********" required type="password" />
                     </div>
-                    <Button type="submit">Entrar</Button>
+                    <div className="grid gap-2">
+                      <div className="flex items-center justify-between">
+                        <Label htmlFor="password">Confirme sua Senha</Label>
+                      </div>
+                      <Input id="password" placeholder="********" required type="password" />
+                    </div>
+                    <Button type="submit">Cadastrar</Button>
                   </div>
                 </form>
               </div>
@@ -68,7 +68,7 @@ export default function LoginPage() {
                 Não possui uma conta?{" "}
                 <Link href="/register" className="font-medium text-primary underline-offset-4 hover:underline">
                   Cadastre-se
-                  <ArrowRight className="ml-1 inline-block h-4 w-4" />
+                  <ArrowRight className="ml-1 w-4 h-4 inline-block" />
                 </Link>
               </div>
             </div>
