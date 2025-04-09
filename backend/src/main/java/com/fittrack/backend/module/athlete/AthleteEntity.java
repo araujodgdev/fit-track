@@ -1,6 +1,9 @@
 package com.fittrack.backend.module.athlete;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.fittrack.backend.module.user.UserRole;
 
@@ -23,8 +26,20 @@ public class AthleteEntity {
     @Email(message = "O campo [email] deve conter um email válido!")
     private String email;
 
+    private String phone;
+    private String address;
+
+    private String notes;
+
     private Integer age;
+    private Double kgWeight;
+    private Integer cmHeight;
     private AthleteGoal goal;
+
+    @CreationTimestamp
+    private LocalDateTime joinedAt;
+
+    private Integer activeSheets;
 
     private UserRole role;
 }
