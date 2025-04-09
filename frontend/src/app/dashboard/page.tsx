@@ -11,17 +11,17 @@ import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Dashboard | FitTrack",
-  description: "Manage your training sheets and clients",
+  description: "Gerencie suas fichas de treino e clientes",
 }
 
 export default function DashboardPage() {
   return (
     <DashboardShell>
-      <DashboardHeader heading="Dashboard" text="Manage your training sheets and clients.">
+      <DashboardHeader heading="Dashboard" text="Gerencie suas fichas de treino e clientes.">
         <Link href="/dashboard/training-sheets/new">
           <Button>
             <PlusCircle className="mr-2 h-4 w-4" />
-            New Training Sheet
+            Nova Ficha de Treino
           </Button>
         </Link>
       </DashboardHeader>
@@ -29,7 +29,7 @@ export default function DashboardPage() {
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
-          <TabsTrigger value="clients">Clients</TabsTrigger>
+          <TabsTrigger value="clients">Clientes</TabsTrigger>
         </TabsList>
         <TabsContent value="overview" className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -46,7 +46,7 @@ export default function DashboardPage() {
                   strokeWidth="2"
                   className="h-4 w-4 text-muted-foreground"
                 >
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                 </svg>
               </CardHeader>
               <CardContent>
@@ -56,7 +56,7 @@ export default function DashboardPage() {
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Clients</CardTitle>
+                <CardTitle className="text-sm font-medium">Clientes Ativos</CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -79,7 +79,7 @@ export default function DashboardPage() {
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Completed Workouts</CardTitle>
+                <CardTitle className="text-sm font-medium">Treinos Completos</CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -101,7 +101,7 @@ export default function DashboardPage() {
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Subscriptions</CardTitle>
+                <CardTitle className="text-sm font-medium">Assinaturas Ativas</CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -132,7 +132,7 @@ export default function DashboardPage() {
             </Card>
             <Card className="col-span-3">
               <CardHeader>
-                <CardTitle>Recent Training Sheets</CardTitle>
+                <CardTitle>Fichas de Treino Recentes</CardTitle>
                 <CardDescription>You created 2 training sheets this month.</CardDescription>
               </CardHeader>
               <CardContent>
@@ -145,11 +145,11 @@ export default function DashboardPage() {
           <Card>
             <CardHeader>
               <CardTitle>Analytics</CardTitle>
-              <CardDescription>
-                View detailed analytics about your training programs and client progress.
+              <CardDescription>                
+                Visualize analytics detalhadas sobre seus programas de treino e o progresso do cliente.
               </CardDescription>
             </CardHeader>
-            <CardContent className="pl-2">
+            <CardContent className="pl-2">              
               <div className="h-[300px] flex items-center justify-center border rounded-md">
                 <p className="text-muted-foreground">Analytics dashboard coming soon</p>
               </div>
@@ -159,12 +159,12 @@ export default function DashboardPage() {
         <TabsContent value="clients" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Clients</CardTitle>
-              <CardDescription>Manage your clients and their training programs.</CardDescription>
+              <CardTitle>Clientes</CardTitle>
+              <CardDescription>Gerencie seus clientes e seus programas de treino.</CardDescription>
             </CardHeader>
-            <CardContent className="pl-2">
+            <CardContent className="pl-2">              
               <div className="h-[300px] flex items-center justify-center border rounded-md">
-                <p className="text-muted-foreground">Client management dashboard coming soon</p>
+                <p className="text-muted-foreground">Painel de gerenciamento de clientes em breve</p>
               </div>
             </CardContent>
           </Card>
