@@ -1,5 +1,7 @@
 package com.fittrack.backend.module.athlete.useCases;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +23,9 @@ public class RegisterAthleteUseCase {
             });
 
         return repo.save(athlete);
+    }
+
+    public List<AthleteEntity> getAllAthletes() {
+        return repo.findAll();
     }
 }

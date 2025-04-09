@@ -7,10 +7,19 @@ Host: localhost:8080
 {
     "name": "johdoe",
     "email": "thd@exle.com",
+    "phone": "900000000",
+    "address": "Emerald city, 13",
+    "notes": "Tem uma dor forte na lombar",
     "age": "25",
+    "kgWeight": 89.9,
+    "cmHeight": 187,
     "goal": "EMAGRECIMENTO",
     "role": "ATHLETE"
 }
+
+###
+GET http://localhost:8080/athlete HTTP/1.1
+Host: localhost:8080
 
 ###
 
@@ -23,7 +32,7 @@ Host: localhost:8080
     "name": "Mary Doe",
     "username": "themarydoe",
     "email": "theMaryDoe@example.com",
-    "password": "123456",
+    "password": "12345678",
     "role": "COACH"
 }
 
@@ -39,6 +48,6 @@ Host: localhost:8080
     "description": "conjunto de exercícios pensado em quem está nas primeiras semanas de treino",
     "goal": "CONDICIONAMENTO",
     "duration": "3 semanas",
-    "createdBy": "JOHN DOE"
+    "createdBy": "MARY DOE"
 }
 
