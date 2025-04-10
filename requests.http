@@ -5,7 +5,7 @@ Content-Type: application/json
 Host: localhost:8080
 
 {
-    "name": "johdoe",
+    "name": "João Mendonça",
     "email": "th@exle.com",
     "phone": "900000000",
     "address": "Emerald city, 13",
