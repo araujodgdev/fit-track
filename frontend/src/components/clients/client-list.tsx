@@ -1,68 +1,72 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Edit, Trash2, ClipboardList } from "lucide-react"
+import { useEffect, useState } from "react";
+
+interface Athlete {
+  id: string
+  name: string
+  age: number
+  kgWeight: number
+  cmHeight: number
+  goal: string
+  goalLabel: string
+  joinedAt: string
+  activeSheets: number
+}
 
 export function ClientList() {
-  // Dados de exemplo - em uma aplicação real, viriam do banco de dados
-  const clients = [
-    {
-      id: "1",
-      name: "Maria Silva",
-      age: 28,
-      weight: 65.5,
-      height: 168,
-      goal: "hipertrofia",
-      goalLabel: "Hipertrofia",
-      joinedAt: "15/03/2023",
-      activeSheets: 2,
-    },
-    {
-      id: "2",
-      name: "João Santos",
-      age: 35,
-      weight: 82.0,
-      height: 180,
-      goal: "emagrecimento",
-      goalLabel: "Emagrecimento",
-      joinedAt: "02/04/2023",
-      activeSheets: 1,
-    },
-    {
-      id: "3",
-      name: "Ana Oliveira",
-      age: 42,
-      weight: 70.2,
-      height: 165,
-      goal: "condicionamento",
-      goalLabel: "Condicionamento Físico",
-      joinedAt: "10/05/2023",
-      activeSheets: 3,
-    },
-    {
-      id: "4",
-      name: "Carlos Pereira",
-      age: 25,
-      weight: 75.8,
-      height: 175,
-      goal: "hipertrofia",
-      goalLabel: "Hipertrofia",
-      joinedAt: "22/06/2023",
-      activeSheets: 2,
-    },
-  ]
+
+  async function getAthletes(): Promise<Athlete[]> {
+    try {
+      const response = await fetch("http://localhost:8080/athlete", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error("Erro ao buscar atletas:", error);
+      return [];
+    }
+  }
+
+const [athletes, setAthletes] = useState<Athlete[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedAthletes = await getAthletes();
+      setAthletes(fetchedAthletes);
+    }
+    fetchData();
+  }, []);
+
+  if (athletes.length === 0) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {clients.map((client) => (
+      {athletes.map((client) => (
         <Card key={client.id}>
           <CardHeader>
             <div className="flex justify-between items-start">
               <div>
                 <CardTitle>{client.name}</CardTitle>
                 <CardDescription className="mt-1">
-                  {client.age} anos • {client.weight} kg • {client.height} cm
+                  {client.age} anos • {client.kgWeight} kg • {client.cmHeight} cm
                 </CardDescription>
               </div>
               <Badge variant="outline" className="capitalize">
@@ -85,7 +89,7 @@ export function ClientList() {
               </div>
               <div>
                 <p className="text-muted-foreground">IMC</p>
-                <p className="font-medium">{(client.weight / Math.pow(client.height / 100, 2)).toFixed(1)}</p>
+                <p className="font-medium">{(client.kgWeight / Math.pow(client.cmHeight / 100, 2)).toFixed(1)}</p>
               </div>
             </div>
           </CardContent>
