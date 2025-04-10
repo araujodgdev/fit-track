@@ -69,3 +69,34 @@ export async function handleRegisterAthelete(prevState: any, formData: FormData)
 
     return true;
 }
+
+
+export async function handleCreateTrainingSheet(prevState: any, formData: FormData) {
+    const myRequest = new Request("http://localhost:8080/training-sheet")
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json")
+
+    await fetch(myRequest, {
+        method: "POST",
+        headers: myHeaders,
+        mode: "cors",
+        cache: "default",
+        body: JSON.stringify({
+            name: formData.get("name"),
+            description: formData.get("description"),
+            goal: formData.get("goal"),
+            duration: formData.get("duration"),
+        })
+    })
+        .then(function (response) {
+           console.log(response.body);
+        })
+        .then(function (body) {
+            const responseParsed = body;
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+
+    return true;
+}
