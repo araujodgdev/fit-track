@@ -6,7 +6,7 @@ Host: localhost:8080
 
 {
     "name": "johdoe",
-    "email": "thd@exle.com",
+    "email": "th@exle.com",
     "phone": "900000000",
     "address": "Emerald city, 13",
     "notes": "Tem uma dor forte na lombar",
