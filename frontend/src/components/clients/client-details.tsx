@@ -1,22 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Client } from "@/lib/clients"
+import { getGoalLabel } from "@/lib/constants"
 
 interface ClientDetailsProps {
-  client: any
+  client: Client
 }
 
 export function ClientDetails({ client }: ClientDetailsProps) {
-  // Função para mapear o objetivo para um texto mais amigável
-  const getGoalLabel = (goal: string) => {
-    const goals = {
-      emagrecimento: "Emagrecimento",
-      hipertrofia: "Hipertrofia",
-      condicionamento: "Condicionamento Físico",
-      reabilitacao: "Reabilitação",
-      saude: "Saúde e Bem-estar",
-    }
-    return goals[goal as keyof typeof goals] || goal
-  }
 
   // Calcular IMC
   const bmi = (client.weight / Math.pow(client.height / 100, 2)).toFixed(1)
@@ -31,7 +22,7 @@ export function ClientDetails({ client }: ClientDetailsProps) {
     return { label: "Obesidade Grau III", color: "bg-red-200 text-red-900" }
   }
 
-  const bmiCategory = getBmiCategory(Number.parseFloat(bmi))
+  const bmiCategory = getBmiCategory(parseFloat(bmi))
 
   return (
     <div className="grid gap-4 md:grid-cols-2">

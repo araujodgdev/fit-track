@@ -7,10 +7,22 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { handleRegister } from "@/lib/actions"
-import { useActionState } from "react"
+import { useState } from "react"
 
 export default function RegisterPage() {
-  const [state, formAction, isPending] = useActionState(handleRegister, false);
+  const [isPending, setIsPending] = useState(false);
+  
+  async function formAction(formData: FormData) {
+    setIsPending(true);
+    try {
+      await handleRegister(null, formData);
+      window.location.href = "/";
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsPending(false);
+    }
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -72,7 +84,7 @@ export default function RegisterPage() {
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor="confirm-password">Confirmar senha</Label>
-                      <Input id="confirm-password" type="password" />
+                      <Input id="confirm-password" name="confirm-password" type="password" />
                     </div>
                     <Button type="submit" disabled={isPending}>
                       {isPending ? (
