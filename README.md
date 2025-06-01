@@ -60,4 +60,9 @@ Isso irá iniciar um container PostgreSQL com as seguintes configurações:
 - [**Histórias Implementadas**](https://github.com/users/araujodgdev/projects/4)
 - [**Screencast da Segunda Entrega**](https://www.youtube.com/watch?v=9Lu8a2bwEDw)
 
+### Entrega 04 - 31/05/2025
+- **Status:** Concluída
+- [**Histórias Implementadas**](https://github.com/users/araujodgdev/projects/4)
+- [**Screencast da Terceira Entrega**](https://www.youtube.com/watch?v=9Lu8a2bwEDw)
+
 ---
