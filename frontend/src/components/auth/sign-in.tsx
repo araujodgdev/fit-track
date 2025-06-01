@@ -3,7 +3,7 @@ import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Dispatch, SetStateAction, useState } from "react";
-import {  handleSignIn } from "@/lib/actions";
+import {  handleLogin } from "@/lib/actions";
 import { AuthStep } from "./auth-form";
 
 export default function SignIn({setStep}: {setStep: Dispatch<SetStateAction<AuthStep>>}) {
@@ -12,7 +12,7 @@ export default function SignIn({setStep}: {setStep: Dispatch<SetStateAction<Auth
     async function formAction(formData: FormData) {
         setIsPending(true);
         try {
-            await handleSignIn(null, formData);
+            await handleLogin(null, formData);
             window.location.href = "/dashboard";
         } catch (error) {
             console.error(error);

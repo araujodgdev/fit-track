@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ExerciseRepository extends JpaRepository<ExerciseEntity, UUID> {
     List<ExerciseEntity> findByTrainingSheetId(UUID trainingSheetId);
+    void deleteByTrainingSheetId(UUID trainingSheetId);
 }

@@ -57,3 +57,39 @@ export interface WorkoutExercise {
 export type ClientWithMeasurements = Client & {
   measurements?: ClientMeasurement[];
 };
+
+/**
+ * Enum para tipos de relatório
+ */
+export enum ReportType {
+  PROGRESS = "PROGRESS",
+  ASSESSMENT = "ASSESSMENT", 
+  INJURY = "INJURY",
+  GENERAL = "GENERAL"
+}
+
+/**
+ * Interface para relatório
+ */
+export interface Report {
+  id: string;
+  title: string;
+  content: string;
+  athleteId: string;
+  athleteName?: string;
+  coachId: string;
+  coachName?: string;
+  reportType: ReportType;
+  createdAt: string;
+  updatedAt: string;
+}
+
+/**
+ * Interface para criação de relatório
+ */
+export interface CreateReportRequest {
+  title: string;
+  content: string;
+  athleteId: string;
+  reportType: ReportType;
+}

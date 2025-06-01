@@ -7,7 +7,7 @@ import DashboardHeader from "@/components/dashboard/dashboard-header";
 import DashboardShell from "@/components/dashboard/dashboard-shell";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTrainingSheet } from "@/lib/training-sheets";
-import { UpdateExerciseWeight } from "@/components/training-sheets/update-exercise-weight";
+import { InlineExerciseEditor } from "@/components/training-sheets/inline-exercise-editor";
 import { EditTrainingSheetModal } from "@/components/training-sheets/edit-training-sheet-modal";
 import { ArrowLeft } from "lucide-react";
 
@@ -113,39 +113,12 @@ export default function ViewTrainingSheetPage({ params }: { params: { id: string
             {trainingSheet?.exercises && trainingSheet.exercises.length > 0 ? (
               <div className="space-y-6">
                 {trainingSheet.exercises.map((exercise: any) => (
-                  <Card key={exercise.id} className="overflow-hidden">
-                    <CardHeader className="bg-muted/50">
-                      <CardTitle className="text-lg">{exercise.name}</CardTitle>
-                      <CardDescription>{exercise.muscleGroup}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                      <div className="grid grid-cols-2 gap-4 mb-4 sm:grid-cols-4">
-                        <div>
-                          <p className="font-semibold">Séries:</p>
-                          <p>{exercise.sets}</p>
-                        </div>
-                        <div>
-                          <p className="font-semibold">Repetições:</p>
-                          <p>{exercise.reps}</p>
-                        </div>
-                        <div>
-                          <p className="font-semibold">Carga:</p>
-                          <p>{exercise.weight || "Não definida"}</p>
-                        </div>
-                        <div>
-                          <p className="font-semibold">Descanso:</p>
-                          <p>{exercise.rest}</p>
-                        </div>
-                      </div>
-                      <UpdateExerciseWeight
-                        trainingSheetId={params.id}
-                        exerciseId={exercise.id}
-                        exerciseName={exercise.name}
-                        currentWeight={exercise.weight || ""}
-                        onUpdate={fetchTrainingSheet}
-                      />
-                    </CardContent>
-                  </Card>
+                  <InlineExerciseEditor
+                    key={exercise.id}
+                    exercise={exercise}
+                    trainingSheetId={params.id}
+                    onUpdate={fetchTrainingSheet}
+                  />
                 ))}
               </div>
             ) : (

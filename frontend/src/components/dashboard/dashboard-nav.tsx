@@ -12,7 +12,7 @@ import {
   SidebarMenuButton,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { Dumbbell, LayoutDashboard, ClipboardList, Users, Settings, LogOut } from "lucide-react"
+import { Dumbbell, LayoutDashboard, ClipboardList, Users, FileText, Settings, LogOut } from "lucide-react"
 
 export function DashboardNav() {
   const pathname = usePathname()
@@ -48,6 +48,14 @@ export function DashboardNav() {
               <Link href="/dashboard/clients">
                 <Users className="mr-2 h-4 w-4" />
                 <span>Clientes</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild isActive={pathname.includes("/dashboard/reports")}>
+              <Link href="/dashboard/reports">
+                <FileText className="mr-2 h-4 w-4" />
+                <span>Relatórios</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

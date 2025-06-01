@@ -111,7 +111,7 @@ export function ExerciseSelector({ selectedExercises, setSelectedExercises }: Ex
                     />
                   </TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="icon" onClick={() => removeExercise(exercise.id)}>
+                    <Button type="button" variant="ghost" size="icon" onClick={() => removeExercise(exercise.id)}>
                       <X className="h-4 w-4" />
                     </Button>
                   </TableCell>
@@ -121,10 +121,11 @@ export function ExerciseSelector({ selectedExercises, setSelectedExercises }: Ex
           </Table>
         </div>
       ) : (
-        <div className="flex items-center justify-center border rounded-md p-8">
+        <div className="flex items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-8">
           <div className="text-center">
-            <p className="text-muted-foreground mb-4">Nenhum exercício adicionado ainda</p>
-            <Button onClick={() => setShowExerciseLibrary(true)}>
+            <p className="text-muted-foreground mb-2">No exercises added yet</p>
+            <p className="text-sm text-red-600 mb-4">At least one exercise is required</p>
+            <Button type="button" onClick={() => setShowExerciseLibrary(true)}>
               <PlusCircle className="mr-2 h-4 w-4" />
               Add Exercises
             </Button>
@@ -135,9 +136,9 @@ export function ExerciseSelector({ selectedExercises, setSelectedExercises }: Ex
       {(showExerciseLibrary || selectedExercises.length > 0) && (
         <div className="space-y-4 border rounded-md p-4">
           <div className="flex justify-between items-center">
-            <h3 className="text-lg font-medium">Biblioteca de Exercícios</h3>
-            <Button variant="outline" size="sm" onClick={() => setShowExerciseLibrary(!showExerciseLibrary)}>
-              {showExerciseLibrary ? "Ocultar Biblioteca" : "Mostrar Biblioteca"}
+            <h3 className="text-lg font-medium">Exercise Library</h3>
+            <Button type="button" variant="outline" size="sm" onClick={() => setShowExerciseLibrary(!showExerciseLibrary)}>
+              {showExerciseLibrary ? "Hide Library" : "Show Library"}
             </Button>
           </div>
 
@@ -180,6 +181,7 @@ export function ExerciseSelector({ selectedExercises, setSelectedExercises }: Ex
                       </p>
                     </div>
                     <Button
+                      type="button"
                       size="sm"
                       variant="ghost"
                       onClick={() => addExercise(exercise)}

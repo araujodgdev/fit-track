@@ -29,4 +29,68 @@ public class CoachEntity {
     private String password;
 
     private UserRole role;
+    
+    /**
+     * Gets the email of the coach
+     * @return The coach's email
+     */
+    public String getEmail() {
+        return this.email;
+    }
+    
+    /**
+     * Sets the email of the coach
+     * @param email The coach's email
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    /**
+     * Gets the name of the coach
+     * @return The coach's name
+     */
+    public String getName() {
+        return this.name;
+    }
+    
+    /**
+     * Sets the name of the coach
+     * @param name The coach's name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    /**
+     * Gets the password of the coach
+     * @return The coach's password
+     */
+    public String getPassword() {
+        return this.password;
+    }
+    
+    /**
+     * Sets the password of the coach
+     * @param password The coach's password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    /**
+     * Gets the role of the coach
+     * @return The coach's role
+     */
+    public UserRole getRole() {
+        return this.role;
+    }
+    
+    /**
+     * Sets the role of the coach
+     * @param role The coach's role
+     */
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
 }

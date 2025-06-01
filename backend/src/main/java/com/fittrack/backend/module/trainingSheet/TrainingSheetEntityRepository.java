@@ -5,6 +5,6 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TrainingSheetRepository extends JpaRepository<TrainingSheetEntity, UUID>{
+public interface TrainingSheetEntityRepository extends JpaRepository<TrainingSheetEntity, UUID>{
     Optional<TrainingSheetEntity> findByName(String name);
 }

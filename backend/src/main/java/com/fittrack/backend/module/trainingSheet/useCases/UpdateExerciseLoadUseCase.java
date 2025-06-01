@@ -14,11 +14,11 @@ public class UpdateExerciseLoadUseCase {
     @Autowired
     private ExerciseRepository exerciseRepository;
 
-    public ExerciseEntity execute(UUID exerciseId, Double newWeight) {
+    public ExerciseEntity execute(UUID exerciseId, String newWeight) {
         Optional<ExerciseEntity> exerciseOptional = exerciseRepository.findById(exerciseId);
         
         if (exerciseOptional.isEmpty()) {
-            throw new RuntimeException("Erro: Ficha não encontrada");
+            throw new RuntimeException("Exercício não encontrado");
         }
         
         ExerciseEntity exercise = exerciseOptional.get();

@@ -33,6 +33,65 @@ export async function handleRegister(prevState: any, formData: FormData) {
     return true;
 }
 
+/**
+ * Creates a new training sheet with exercises and athlete assignments
+ * @param formData Form data containing basic training sheet information
+ * @param selectedExercises Array of selected exercises with their details
+ */
+export async function handleCreateTrainingSheetWithExercises(formData: FormData, selectedExercises: any[]) {
+  const name = formData.get("name") as string;
+  const description = formData.get("description") as string;
+  const goal = formData.get("goal") as string;
+  const duration = formData.get("duration") as string;
+  const assignedToInput = formData.get("assignedTo") as string;
+  
+  // Parse assigned athletes from comma-separated string
+  const assignedTo = assignedToInput 
+    ? assignedToInput.split(",").map(id => id.trim()).filter(id => id.length > 0)
+    : [];
+
+  // Transform selected exercises to match backend DTO structure
+  const exercises = selectedExercises.map(exercise => ({
+    name: exercise.name,
+    muscleGroup: exercise.category || "General", // Map category to muscleGroup
+    sets: exercise.sets || 3,
+    reps: exercise.reps || "10-12",
+    weight: exercise.weight || "",
+    rest: exercise.rest || "60s",
+    notes: exercise.notes || ""
+  }));
+
+  const requestPayload = {
+    name,
+    description,
+    goal,
+    duration,
+    exercises,
+    assignedTo
+  };
+
+  try {
+    const response = await fetch("http://localhost:8080/training-sheet", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestPayload),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to create training sheet: ${errorText}`);
+    }
+
+    const result = await response.json();
+    revalidatePath("/dashboard/training-sheets");
+    return result;
+  } catch (error) {
+    console.error("Error creating training sheet:", error);
+    throw error;
+  }
+}
 
 // Alterado para handleCreateTrainingSheetLocal para evitar duplicação
 export async function handleCreateTrainingSheetLocal(prevState: boolean, formData: FormData) {
@@ -57,86 +116,6 @@ export async function handleCreateTrainingSheetLocal(prevState: boolean, formDat
   }
 }
 
-export async function handleUpdateExerciseWeight(
-  prevState: { success: boolean; message: string },
-  formData: FormData
-) {
-  const trainingSheetId = formData.get("trainingSheetId") as string;
-  const exerciseId = formData.get("exerciseId") as string;
-  const weight = formData.get("weight") as string;
-
-  try {
-    // Buscar a ficha de treino
-    const trainingSheet = await getTrainingSheet(trainingSheetId);
-    
-    if (!trainingSheet) {
-      return { success: false, message: "Erro: Ficha não encontrada" };
-    }
-    
-    // Encontrar o exercício na ficha
-    const exerciseIndex = trainingSheet.exercises.findIndex(ex => ex.id === exerciseId);
-    
-    if (exerciseIndex === -1) {
-      return { success: false, message: "Erro: Exercício não encontrado" };
-    }
-    
-    // Atualizar a carga do exercício
-    trainingSheet.exercises[exerciseIndex].weight = weight;
-    
-    // Salvar a ficha atualizada
-    const updatedSheet = await updateTrainingSheet(trainingSheetId, {
-      exercises: trainingSheet.exercises
-    });
-    
-    if (!updatedSheet) {
-      return { success: false, message: "Erro ao atualizar a carga do exercício" };
-    }
-    
-    revalidatePath(`/dashboard/training-sheets/${trainingSheetId}/view`);
-    return { success: true, message: "Carga atualizada com sucesso" };
-  } catch (error) {
-    console.error("Erro ao atualizar carga:", error);
-    return { success: false, message: "Erro ao atualizar a carga do exercício" };
-  }
-}
-
-export async function handleRegisterAthlete(prevState: any, formData: FormData) {
-    const myRequest = new Request("http://localhost:8080/athlete")
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json")
-
-    await fetch(myRequest, {
-        method: "POST",
-        headers: myHeaders,
-        mode: "cors",
-        cache: "default",
-        body: JSON.stringify({
-            name: formData.get("name"),
-            email: formData.get("email"),
-            phone: formData.get("phone"),
-            address: formData.get("address"),
-            notes: formData.get("notes"),
-            age: formData.get("age"),
-            kgWeight: formData.get("weight"),
-            cmHeight: formData.get("height"),
-            goal: formData.get("goal"),
-            role: "ATHLETE"
-        })
-    })
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error(`HTTP Error! status: ${response.status}`)
-            }
-            return response.body;
-        })
-        .catch(function (error) {
-            console.log(error)
-        })
-
-    return true;
-}
-
-
 export async function handleCreateTrainingSheet(prevState: any, formData: FormData) {
     const myRequest = new Request("http://localhost:8080/training-sheet")
     const myHeaders = new Headers();
@@ -151,7 +130,7 @@ export async function handleCreateTrainingSheet(prevState: any, formData: FormDa
             name: formData.get("name"),
             description: formData.get("description"),
             goal: formData.get("goal"),
-            duration: formData.get("duration"),
+            duration: formData.get("duration")
         })
     })
         .then(function (response) {
@@ -167,13 +146,13 @@ export async function handleCreateTrainingSheet(prevState: any, formData: FormDa
     return true;
 }
 
-export async function handleSignIn(prevState: any, formData: FormData) {
-    const myRequest = new Request("http://localhost:8080/sign-in")
-    const myHeaders = new Headers()
+export async function handleLogin(prevState: any, formData: FormData) {
+    const myRequest = new Request("http://localhost:8080/coach/auth")
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json")
 
     await fetch(myRequest, {
-        method: 'POST',
+        method: "POST",
         headers: myHeaders,
         mode: "cors",
         cache: "default",
@@ -182,16 +161,85 @@ export async function handleSignIn(prevState: any, formData: FormData) {
             password: formData.get("password")
         })
     })
-        .then(res => {
-            if (!res.ok) {
-                throw new Error(`HTTP Error! status: ${res.status}`)
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error(`HTTP Error! status: ${response.status}`)
             }
-            return res.body;
+            return response.body;
         })
-        .catch(err => {
-            console.log(err)
+        .catch(function (error) {
+            console.log(error)
         })
 
+    return true;
+}
 
-    return true
+export async function handleUpdateTrainingSheet(id: string, formData: FormData) {
+  const name = formData.get("name") as string;
+  const description = formData.get("description") as string;
+  const goal = formData.get("goal") as string;
+  const duration = formData.get("duration") as string;
+
+  try {
+    await updateTrainingSheet(id, {
+      name,
+      description,
+      goal,
+      duration,
+    });
+
+    revalidatePath("/dashboard/training-sheets");
+    revalidatePath(`/dashboard/training-sheets/${id}`);
+    return { success: true };
+  } catch (error) {
+    console.error("Error updating training sheet:", error);
+    return { success: false, error: "Failed to update training sheet" };
+  }
+}
+
+export async function handleDeleteTrainingSheet(id: string) {
+  try {
+    const response = await fetch(`http://localhost:3001/api/training-sheets/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to delete training sheet");
+    }
+
+    revalidatePath("/dashboard/training-sheets");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting training sheet:", error);
+    return { success: false, error: "Failed to delete training sheet" };
+  }
+}
+
+export async function handleUpdateExerciseWeight(prevState: any, formData: FormData) {
+  const exerciseId = formData.get("exerciseId") as string;
+  const weight = formData.get("weight") as string;
+
+  try {
+    const response = await fetch(`http://localhost:8080/training-sheet/exercise/${exerciseId}/weight`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ weight }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText || "Erro ao atualizar carga do exercício");
+    }
+
+    revalidatePath("/dashboard/training-sheets");
+    return { success: true, message: "Carga atualizada com sucesso" };
+  } catch (error) {
+    console.error("Error updating exercise weight:", error);
+    return { 
+      success: false, 
+      message: error instanceof Error ? error.message : "Erro ao atualizar carga do exercício" 
+    };
+  }
 }

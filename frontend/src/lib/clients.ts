@@ -29,7 +29,7 @@ export interface Client {
   // Banco de dados simulado de clientes
   let clients: Client[] = [
     {
-      id: "1",
+      id: "456e7890-e89b-12d3-a456-426614174001",
       name: "Maria Silva",
       age: 28,
       weight: 65.5,
@@ -43,7 +43,7 @@ export interface Client {
       activeSheets: 2,
     },
     {
-      id: "2",
+      id: "456e7890-e89b-12d3-a456-426614174002",
       name: "João Santos",
       age: 35,
       weight: 82.0,
@@ -57,7 +57,7 @@ export interface Client {
       activeSheets: 1,
     },
     {
-      id: "3",
+      id: "456e7890-e89b-12d3-a456-426614174003",
       name: "Ana Oliveira",
       age: 42,
       weight: 70.2,
@@ -71,7 +71,7 @@ export interface Client {
       activeSheets: 3,
     },
     {
-      id: "4",
+      id: "456e7890-e89b-12d3-a456-426614174004",
       name: "Carlos Pereira",
       age: 25,
       weight: 75.8,

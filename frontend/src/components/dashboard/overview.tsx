@@ -39,4 +39,4 @@ export function Overview() {
       </BarChart>
     </ResponsiveContainer>
   )
-
+}
