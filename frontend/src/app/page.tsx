@@ -4,8 +4,10 @@ import { ArrowRight, BicepsFlexed } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import AuthForm from "@/components/auth/auth-form"
 
-export default function RegisterPage() {
+export default function Home() {
+  
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
@@ -26,53 +28,8 @@ export default function RegisterPage() {
               </blockquote>
             </div>
           </div>
-          <div className="lg:p-8">
-            <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-              <div className="flex flex-col space-y-2 text-center">
-                <h1 className="text-2xl font-semibold tracking-tight">Entre na sua conta</h1>
-                <p className="text-sm text-muted-foreground"> Crie sua conta para começar a usar o FitTrack.
-                </p>
-              </div>
-              <div className="grid gap-6">
-                <form>
-                  <div className="grid gap-4">
-                    <div className="grid gap-2">
-                      <Label htmlFor="email">E-mail</Label>
-                      <Input
-                        id="email"
-                        placeholder="seuemail@exemplo.com"
-                        required
-                        type="email"
-                        autoCapitalize="none"
-                        autoComplete="email"
-                        autoCorrect="off"
-                      />
-                    </div>
-                    <div className="grid gap-2">
-                      <div className="flex items-center justify-between">
-                        <Label htmlFor="password">Senha</Label>
-                      </div>
-                      <Input id="password" placeholder="********" required type="password" />
-                    </div>
-                    <div className="grid gap-2">
-                      <div className="flex items-center justify-between">
-                        <Label htmlFor="password">Confirme sua Senha</Label>
-                      </div>
-                      <Input id="password" placeholder="********" required type="password" />
-                    </div>
-                    <Button type="submit">Cadastrar</Button>
-                  </div>
-                </form>
-              </div>
-              <div className="text-center text-sm text-muted-foreground">
-                Não possui uma conta?{" "}
-                <Link href="/register" className="font-medium text-primary underline-offset-4 hover:underline">
-                  Cadastre-se
-                  <ArrowRight className="ml-1 w-4 h-4 inline-block" />
-                </Link>
-              </div>
-            </div>
-          </div>
+          <AuthForm />
+        
         </div>
       </main>
     </div>

@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useActionState, useState } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,11 +13,23 @@ import DashboardHeader from "@/components/dashboard/dashboard-header"
 import DashboardShell from "@/components/dashboard/dashboard-shell"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Loader2, Save } from "lucide-react"
-import { handleRegisterAthelete } from "@/lib/actions"
+import { handleRegisterAthlete } from "@/lib/actions"
 
 export default function NewClientPage() {
   const router = useRouter()
-  const [state, formAction, isPending] = useActionState(handleRegisterAthelete, false)
+  const [isPending, setIsPending] = useState(false)
+  
+  async function formAction(formData: FormData) {
+    setIsPending(true)
+    try {
+      await handleRegisterAthlete(null, formData)
+      router.push("/dashboard/clients")
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsPending(false)
+    }
+  }
 
   return (
     <DashboardShell>
@@ -65,7 +77,8 @@ export default function NewClientPage() {
                     <SelectItem value="EMAGRECIMENTO">Emagrecimento</SelectItem>
                     <SelectItem value="HIPERTROFIA">Hipertrofia</SelectItem>
                     <SelectItem value="CONDICIONAMENTO">Condicionamento Físico</SelectItem>
-                    <SelectItem value="REABILITAÇÃO">Reabilitação</SelectItem>
+                    <SelectItem value="REABILITACAO">Reabilitação</SelectItem>
+                    <SelectItem value="SAUDE">Saúde e Bem-estar</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

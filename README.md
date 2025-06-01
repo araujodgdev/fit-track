@@ -10,6 +10,22 @@
   - Gabriel Farias
   - Lucas Mateus
 
+## Configuração do Ambiente
+
+### Banco de Dados
+
+O projeto utiliza PostgreSQL como banco de dados. Para iniciar o banco de dados usando Docker:
+
+```bash
+docker-compose up -d
+```
+
+Isso irá iniciar um container PostgreSQL com as seguintes configurações:
+- **Usuário**: fittrack
+- **Senha**: fittrack
+- **Banco de Dados**: fittrack
+- **Porta**: 5432
+
 ## Descrição do Produto
 
 **FitTrack** é um sistema desenvolvido para gerenciar fichas de treino em academias de musculação. Ele permite que instrutores criem, atualizem e acompanhem o progresso dos alunos de forma eficiente, oferecendo uma solução prática para personalizar treinos e monitorar resultados. O sistema registra exercícios, ajusta cargas conforme a evolução do aluno e gera relatórios de progresso, trazendo organização e valor tanto para instrutores quanto para alunos.
